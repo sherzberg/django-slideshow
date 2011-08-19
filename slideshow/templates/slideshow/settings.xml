@@ -9,7 +9,7 @@
 				slideshowHeight="{{slideshow.height}}"
 				slideshowX="center"
 				slideshowY="0"
-				bgColor="FFFFFF"
+				bgColor="000000"
 				bgOpacity="100"
 				useHtml="true"
 				showHideCaption="true"
