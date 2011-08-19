@@ -1,0 +1,11 @@
+*.pyc
+*.tar
+*.tar.gz
+*.tar.bz2
+*.pyc
+*.pyo
+media/images/*
+*.db
+*.sqlite
+.project
+.pydevproject
