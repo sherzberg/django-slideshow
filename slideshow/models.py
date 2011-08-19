@@ -28,8 +28,7 @@ class Slideshow(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return '/slideshows/show/'+self.slug
-        #return ('view_slideshow', (), {'slideshow_slug': self.slug})
+        return ('view_slideshow', (), {'slideshow_slug': self.slug})
     
     def settings_url(self):
         return reverse('slideshow_settings', args=[self.slug])
