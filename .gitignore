@@ -5,6 +5,7 @@
 *.pyc
 *.pyo
 media/images/*
+slideshowtest/media/slideshow_images/*
 *.db
 *.sqlite
 .project
