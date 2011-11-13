@@ -38,11 +38,16 @@ div#slideshow ul#slides li {
 
 <script type="text/javascript">
 $(document).ready(function() {
+	//hack the conversion from python to js
+	var True = true;
+	var False = false
+	
 	$("#slideshow").css("overflow", "hidden");
 	
 	$("ul#slides").cycle({
 		fx: 'fade',
 		pause: {{slideshow.display_time}},
+		random: {{slideshow.random}},
 		prev: '#prev',
 		next: '#next'
 	});
