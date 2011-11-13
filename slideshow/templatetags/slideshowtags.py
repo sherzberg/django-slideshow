@@ -18,11 +18,18 @@ class SlideshowRenderer(template.Node):
         setattr(context, 'slideshow',self.slideshow)
         setattr(context, 'images',self.slideshow.images())
         
+        if self.slideshow.type == Slideshow.SLIDESHOW_TYPE_FLASH:
+            slideshow_template = 'slideshow/slideshow.html'
+        elif self.slideshow.type == Slideshow.SLIDESHOW_TYPE_JAVASCRIPT_MOBILE:
+            slideshow_template = 'slideshow/javascript_mobile.html'
+            
         d = {
              'MEDIA_URL': settings.MEDIA_URL,
-             'slideshow': self.slideshow
+             'slideshow': self.slideshow,
+             'images': self.slideshow.images(),
+             'slideshow_template': slideshow_template
              }
-        t = template.loader.get_template('slideshow/slideshow.html')
+        t = template.loader.get_template(slideshow_template)
         c = template.Context(d)
         
         html = t.render(c)

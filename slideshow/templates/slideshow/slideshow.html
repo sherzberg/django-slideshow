@@ -122,11 +122,16 @@ function DetectFlashVer(reqMajorVer, reqMinorVer, reqRevision)
 var hasRightVersion = DetectFlashVer(requiredMajorVersion, requiredMinorVersion, requiredRevision);
 if(hasRightVersion) {  // if we've detected an acceptable version
 
-   var so = new SWFObject("{{MEDIA_URL}}/slideshow.swf", "{{slideshow.name}}", "{{slideshow.width}}", "{{slideshow.height}}", "7", "#333333");
+   var so = new SWFObject("{{MEDIA_URL}}slideshow.swf", "{{slideshow.name}}", "{{slideshow.width}}", "{{slideshow.height}}", "7", "#333333");
 
-   so.addVariable("file", "{{slideshow.settings_url}}")
+   //so.addVariable("file", "{{slideshow.settings_url}}")
+   
+   //so.addVariable("content", "/media/demos/content.xml");
+   //so.addVariable("settings", "/media/demos/settings.xml");
+   so.addVariable("file", "/media/demos/settings.xml");
+   so.addParam("allowFullScreen", "true");
    so.write("flashcontent");
-
+		   
   } else {  // flash is too old or we can't detect the plugin
     var alternateContent = 'Alternate HTML content should be placed here.'
   	+ 'This content requires the Macromedia Flash Player.'

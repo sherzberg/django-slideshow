@@ -1,0 +1,51 @@
+
+{% comment %}
+{% endcomment %}
+
+<div id="slideshow">
+	<ul id="slides">
+	{% for image in images %}
+		<li><img src="{{MEDIA_URL}}{{image.image}}" alt="{{image.get_caption}}" title="{{image.get_caption}}" /></li>
+	{% endfor %}
+	</ul>
+</div>
+
+
+
+<style>
+
+
+div#slideshow {
+	min-width: 100%;
+	height: auto;
+	overflow: scroll;
+	/* Allows the slides to be viewed using scrollbar if Javascript isn't available */
+	position: relative;
+	z-index: 5;
+}
+
+div#slideshow ul#slides {
+	list-style: none;
+}
+
+div#slideshow ul#slides li {
+}
+</style>
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="{{MEDIA_URL}}js/jquery.cycle.all.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#slideshow").css("overflow", "hidden");
+	
+	$("ul#slides").cycle({
+		fx: 'fade',
+		pause: {{slideshow.display_time}},
+		prev: '#prev',
+		next: '#next'
+	});
+	
+});
+</script>

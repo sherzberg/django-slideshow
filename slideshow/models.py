@@ -4,8 +4,11 @@ from django.core.urlresolvers import reverse
 # Create your models here.
 
 class Slideshow(models.Model):
-    SLIDESHOW_TYPE_FLASH = 'flash'    
-    SLIDESHOW_TYPES = ((SLIDESHOW_TYPE_FLASH, 'Flash'),)
+    SLIDESHOW_TYPE_FLASH = 'flash'
+    SLIDESHOW_TYPE_JAVASCRIPT_MOBILE = 'javascript-mobile'
+    SLIDESHOW_TYPES = (
+                       (SLIDESHOW_TYPE_FLASH, 'Flash'),
+                       (SLIDESHOW_TYPE_JAVASCRIPT_MOBILE, 'Javascript Mobile'),)
 
     name = models.CharField(blank=False, max_length=50)
     slug = models.SlugField(blank=False, max_length=50)
@@ -46,4 +49,8 @@ class SlideshowImage(models.Model):
     def __unicode__(self):
         return str(self.slideshow) + ": " + self.caption
     
-    
+    def get_caption(self):
+        if len(self.caption) > 0:
+            return self.caption
+        else:
+            return self.image.url.split('/')[-1]

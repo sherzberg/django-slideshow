@@ -52,7 +52,7 @@
 				loaderOpacity="100" 
 				
 				attachCaptionToImage="true"
-				cropImages="true"
+				cropImages="false"
 				slideshowMargin="0"
 				showMusicButton="true"
 				music="{{MEDIA_URL}}{{slideshow.music_file}}"
