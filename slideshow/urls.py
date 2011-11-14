@@ -8,5 +8,4 @@ urlpatterns = patterns('slideshow.views',
 
     (r'^(?P<slideshow_slug>[-\w]+)/settings.xml$', 'slideshow_settings', {}, 'slideshow_settings'),
 
-    (r'^bulkupload/$', 'slideshowimage_bulk_upload', {}, 'slideshowbulkupload'),
 )
