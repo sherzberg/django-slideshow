@@ -12,3 +12,8 @@ def test(request, template_name='slideshowtest/test.html'):
     return render_to_response(template_name, locals(), RequestContext(request))
 
 
+def mobile(request, template_name='slideshowtest/mobile.html'):
+    
+    slideshow_slug = 'test-mobile'
+    
+    return render_to_response(template_name, locals(), RequestContext(request))

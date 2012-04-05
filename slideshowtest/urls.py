@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     (r'^slideshow/', include('slideshow.urls')),
 
     (r'^test/$', 'slideshowtest.views.test'),
+    (r'^mobile/$', 'slideshowtest.views.mobile'),
 
 
     # Uncomment the admin/doc line below to enable admin documentation:
